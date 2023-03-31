@@ -8,7 +8,7 @@ MainThreadChecker is a utility for debugging to detect main thread block or lags
 - [Installation](#installation)
 - [Usage](#usage)
 - [Example](#example)
-- [How does it work](#how does it work)
+- [How does it work](#how&#32does&#32it&#32work)
 - [Credits](#credits)
 
 ## Requirements
@@ -60,7 +60,9 @@ See demo app - MainThreadCheckerDemo
 
 ## How does it work
 It synchronizes current activity of the main run loop out using a semaphore before reaching a pre-set threshold time.
+
 While the semaphore's time of waiting meets the threshold time, no block or lags happens. If not, the checker will judge the last activity of the main run loop. For activity of .beforeWaiting, the main thread is currently healthy, but for activities of .beforeSources and .afterWaiting, the checker can assert that the main thread is now running heavy jobs so that a block or lag happens.
+
 Notice:
 - When the app goes to the background, its main thread sleeps and will unexpectedly trigger the time's up alarm. In that case, MainThreadChecker sleeps too and will not trigger an alarm before the app comes back to the foreground.
 - By default, the checker is running in common mode which means it will not check under development environment such as launching from Xcode because any break points which suspend the process may also unexpectedly trigger the checker's alarm. However, you can start checking in parent mode programmatically which means it will ignore whether there's any debugger attached and start checking anyway.
