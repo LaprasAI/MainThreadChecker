@@ -8,7 +8,7 @@ MainThreadChecker is a utility for debugging to detect main thread block or lags
 - [Installation](#installation)
 - [Usage](#usage)
 - [Example](#example)
-- [How does it work](#how&#32does&#32it&#32work)
+- [How does it work](#how-does-it-work)
 - [Credits](#credits)
 
 ## Requirements
@@ -58,7 +58,7 @@ MainThreadChecker.shared.start(checking: 1.0, in: .parentMode) {
 
 See demo app - MainThreadCheckerDemo
 
-## How&#32does&#32it&#32work
+## How does it work
 It synchronizes current activity of the main run loop out using a semaphore before reaching a pre-set threshold time.
 
 While the semaphore's time of waiting meets the threshold time, no block or lags happens. If not, the checker will judge the last activity of the main run loop. For activity of .beforeWaiting, the main thread is currently healthy, but for activities of .beforeSources and .afterWaiting, the checker can assert that the main thread is now running heavy jobs so that a block or lag happens.
